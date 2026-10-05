@@ -1,0 +1,88 @@
+<view class="container" wx:if="{{item}}">
+  <!-- 头部 -->
+  <view class="header">
+    <view class="header-title">{{item.title}}</view>
+    <view class="header-summary">{{item.summary}}</view>
+    <view class="header-tags">
+      <view class="htag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</view>
+    </view>
+  </view>
+
+  <!-- 概念速览 -->
+  <view class="section">
+    <view class="section-header clickable" data-key="showConcept" bindtap="toggleSection">
+      <view class="sec-left">
+        <text class="sec-icon">💡</text>
+        <text class="sec-title">概念速览</text>
+      </view>
+      <text class="sec-arrow {{showConcept?'open':''}}">▶</text>
+    </view>
+    <view class="sec-body" wx:if="{{showConcept}}">
+      <text class="content-text">{{item.concept}}</text>
+    </view>
+  </view>
+
+  <!-- 原理深度 -->
+  <view class="section">
+    <view class="section-header clickable" data-key="showPrinciple" bindtap="toggleSection">
+      <view class="sec-left">
+        <text class="sec-icon">⚙️</text>
+        <text class="sec-title">原理深度</text>
+      </view>
+      <text class="sec-arrow {{showPrinciple?'open':''}}">▶</text>
+    </view>
+    <view class="sec-body" wx:if="{{showPrinciple}}">
+      <text class="code-block">{{item.principle}}</text>
+    </view>
+  </view>
+
+  <!-- 实战案例 -->
+  <view class="section">
+    <view class="section-header clickable" data-key="showCase" bindtap="toggleSection">
+      <view class="sec-left">
+        <text class="sec-icon">🛠️</text>
+        <text class="sec-title">实战案例</text>
+      </view>
+      <text class="sec-arrow {{showCase?'open':''}}">▶</text>
+    </view>
+    <view class="sec-body" wx:if="{{showCase}}">
+      <text class="content-text">{{item.case}}</text>
+    </view>
+  </view>
+
+  <!-- 代码路径 -->
+  <view class="section" wx:if="{{item.codeRefs && item.codeRefs.length}}">
+    <view class="section-header">
+      <view class="sec-left">
+        <text class="sec-icon">📂</text>
+        <text class="sec-title">代码路径</text>
+      </view>
+    </view>
+    <view class="sec-body">
+      <view class="code-ref-list">
+        <text
+          class="code-ref"
+          wx:for="{{item.codeRefs}}"
+          wx:key="*this"
+        >• {{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 面试题 -->
+  <view class="interview-section" wx:if="{{item.interviews && item.interviews.length}}">
+    <view class="interview-title">💬 面试题（{{item.interviews.length}}题）</view>
+    <view
+      class="interview-card"
+      wx:for="{{item.interviews}}"
+      wx:key="index"
+    >
+      <view class="iq-header" data-idx="{{item.index}}" bindtap="toggleAnswer">
+        <view class="level-badge level-{{item.level}}">{{item.levelLabel}}</view>
+        <view class="iq-question">{{item.question}}</view>
+        <text class="iq-arrow">{{openAnswers[item.index]?'▲':'▼'}}</text>
+      </view>
+      <view class="iq-answer" wx:if="{{openAnswers[item.index]}}">{{item.answer}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+.container { background: #f5f6fa; min-height: 100vh; }
+
+/* 难度筛选 */
+.filter-bar {
+  padding: 20rpx 32rpx;
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.filter-label { font-size: 26rpx; color: #718096; }
+.filter-btn {
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  color: #4a5568;
+  background: #f7fafc;
+  border: 1rpx solid #e2e8f0;
+}
+.filter-btn.active { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+
+/* 知识点卡片 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 24rpx 32rpx 0;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+}
+.card:active { opacity: 0.85; }
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; }
+.card-title { font-size: 32rpx; font-weight: 600; color: #2d3748; flex: 1; line-height: 1.4; }
+.diff-badge {
+  font-size: 22rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  background: #fff3e0;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+.card-summary { font-size: 26rpx; color: #718096; margin-top: 12rpx; line-height: 1.5; }
+.tag-row { margin-top: 16rpx; display: flex; flex-wrap: wrap; gap: 8rpx; }
+.tag { font-size: 22rpx; color: #4a5568; background: #edf2f7; padding: 4rpx 14rpx; border-radius: 16rpx; }
+.interview-hint { font-size: 22rpx; color: #1a73e8; margin-top: 16rpx; }
+
+.empty { text-align: center; padding: 120rpx 40rpx; color: #a0aec0; font-size: 28rpx; }

@@ -1,0 +1,47 @@
+page {
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  background: #f5f6fa;
+  box-sizing: border-box;
+}
+
+/* 通用卡片 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin: 24rpx 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.06);
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  margin: 4rpx;
+}
+.tag-basic    { background: #e8f5e9; color: #388e3c; }
+.tag-advanced { background: #fff3e0; color: #f57c00; }
+.tag-expert   { background: #fce4ec; color: #c62828; }
+
+/* 代码块 */
+.code-block {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Courier New', monospace;
+  font-size: 24rpx;
+  padding: 24rpx;
+  border-radius: 12rpx;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: #f0f0f0;
+  margin: 24rpx 0;
+}

@@ -1,0 +1,36 @@
+<view class="container">
+  <!-- 顶部 banner -->
+  <view class="banner">
+    <view class="banner-title">Linux Kernel</view>
+    <view class="banner-sub">知识库 · 面试题</view>
+    <view class="search-bar" bindtap="goSearch">
+      <text class="search-icon">🔍</text>
+      <text class="search-hint">搜索知识点、面试题…</text>
+    </view>
+  </view>
+
+  <!-- 分类网格 -->
+  <view class="section-title">知识分类</view>
+  <view class="grid" wx:if="{{!loading}}">
+    <view
+      class="grid-item"
+      wx:for="{{categories}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      data-name="{{item.name}}"
+      bindtap="goList"
+      style="border-top: 8rpx solid {{item.color}}"
+    >
+      <view class="item-icon">{{item.icon}}</view>
+      <view class="item-name">{{item.name}}</view>
+      <view class="item-en">{{item.nameEn}}</view>
+      <view class="item-count">{{item.count}} 个知识点</view>
+      <view class="item-desc">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <!-- loading -->
+  <view class="loading" wx:else>
+    <view class="loading-text">加载中…</view>
+  </view>
+</view>

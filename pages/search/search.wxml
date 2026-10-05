@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input
+      class="search-input"
+      placeholder="搜索知识点、面试题、标签…"
+      value="{{keyword}}"
+      bindinput="onKeywordInput"
+      bindconfirm="onSearch"
+      confirm-type="search"
+    />
+    <text class="clear-btn" wx:if="{{keyword}}" bindtap="clearKeyword">✕</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{!searched}}">
+    <view class="tip">输入关键词搜索\n如：WDT、S2idle、SMMU、面试</view>
+  </view>
+
+  <!-- 结果 -->
+  <view wx:else>
+    <view class="result-count">找到 {{results.length}} 个结果</view>
+    <view
+      class="card"
+      wx:for="{{results}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="goDetail"
+    >
+      <view class="card-title">{{item.title}}</view>
+      <view class="card-cat">{{item.catName}}</view>
+      <view class="card-summary">{{item.summary}}</view>
+      <view class="card-tags">
+        <view class="tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</view>
+      </view>
+    </view>
+    <view class="tip" wx:if="{{results.length===0}}">没有找到相关内容</view>
+  </view>
+</view>

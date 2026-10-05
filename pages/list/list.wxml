@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 难度筛选 -->
+  <view class="filter-bar">
+    <text class="filter-label">难度：</text>
+    <view class="filter-btn {{difficulty===0?'active':''}}" data-d="0" bindtap="filterByDifficulty">全部</view>
+    <view class="filter-btn {{difficulty===1?'active':''}}" data-d="1" bindtap="filterByDifficulty">入门</view>
+    <view class="filter-btn {{difficulty===2?'active':''}}" data-d="2" bindtap="filterByDifficulty">进阶</view>
+    <view class="filter-btn {{difficulty===3?'active':''}}" data-d="3" bindtap="filterByDifficulty">专家</view>
+  </view>
+
+  <!-- 列表 -->
+  <block wx:if="{{!loading}}">
+    <view
+      class="card"
+      wx:for="{{filtered}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="goDetail"
+    >
+      <view class="card-header">
+        <view class="card-title">{{item.title}}</view>
+        <view class="diff-badge" style="color:{{item.difficultyColor}}">{{item.difficultyLabel}}</view>
+      </view>
+      <view class="card-summary">{{item.summary}}</view>
+      <view class="tag-row">
+        <view class="tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</view>
+      </view>
+      <view class="interview-hint">💬 {{item.interviews.length}} 道面试题 →</view>
+    </view>
+    <view class="empty" wx:if="{{filtered.length===0}}">暂无知识点</view>
+  </block>
+</view>
